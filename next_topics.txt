@@ -1,0 +1,49 @@
+
+
+Classic ML 
+
+
+- learn outliers
+- revision of linear regression  and apply outliers and other feature enginerring techniques
+- logistics regression
+- neural net
+
+- finetuning - https://youtu.be/0MMAEwSmPDg?si=sz95iMjj7ngMtGTS
+
+resource for linear and logistics regression(classification)
+fine tuning yt link using hugging face and pytorch - https://youtu.be/bZcKYiwtw1I?si=CCRrakFf0BKRrleK
+or 
+fine tuning yt link - https://youtu.be/9yl6-HEY7_s?si=NCl8Mdhp7xvYMrfR
+
+------
+
+AI 
+
+- exploring other types of RAG
+- Finetuning with unsloth, OLLMA, quantization and lora (because this process works good with large models as well)
+    1) Normal fine-tuning on small model
+    2) Learn LoRA
+    3) Learn quantization
+    4) Then use Unsloth for optimization
+- MCP
+- langsmith
+- langgraph
+- langchain
+- crewai
+- n8n
+------
+
+more information
+
+Best medium-level dataset for interview discussion:
+House Prices - Advanced Regression Techniques (Kaggle)
+Why good:
+* Real-world dataset
+* Missing values handling
+* Feature engineering (outliers)
+* Categorical encoding
+* Correlation analysis
+* Linear Regression + Ridge/Lasso comparison
+* Evaluation using RMSE
+You can say in interview:
+“I worked on house price prediction using Linear Regression. I handled null values, categorical encoding, feature selection, scaling, and evaluated performance using RMSE.”
