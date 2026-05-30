@@ -17,14 +17,27 @@ fine tuning yt link - https://youtu.be/9yl6-HEY7_s?si=NCl8Mdhp7xvYMrfR
 
 ------
 
+AI architecture
+
+PyTorch becomes useful when you want to build/train:
+Neural Networks
+LSTMs, Transformers, Memory
+LLM fine-tuning
+Image models (CNNs)
+Custom deep learning architectures
+
+------
+
 AI 
 
 - exploring other types of RAG
+    - types of rag
+    - graph rag
 - Finetuning with unsloth, OLLMA, quantization and lora (because this process works good with large models as well)
-    1) Normal fine-tuning on small model
-    2) Learn LoRA
-    3) Learn quantization
-    4) Then use Unsloth for optimization
+    1. Normal fine-tuning on small model
+    2. Learn LoRA
+    3. Learn quantization
+    4. Then use Unsloth for optimization
 - MCP
 - langsmith
 - langgraph
