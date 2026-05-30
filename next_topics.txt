@@ -8,6 +8,33 @@ Classic ML
 - logistics regression
 - neural net
 
+(*For AI/LLM Engineer roles — interviewers rarely go deep on classical ML. But these are must-know:**
+
+**High priority (conceptual understanding only):**
+- Linear Regression + Logistic Regression — loss, gradient descent
+- Bias-Variance tradeoff — very frequently asked conceptually
+- Decision Trees + Random Forest — intuition, overfitting, feature importance
+- Gradient Boosting (XGBoost) — know when to use it
+
+**Medium priority (just know what/when to use):**
+- KNN — simple intuition
+- Naive Bayes — good for NLP context
+- SVM — just high level, rarely asked deep
+
+**Skip or very low priority for your target roles:**
+- AdaBoost — rarely asked
+- Deep classical stuff — not relevant
+
+---
+
+**For LLM/RAG/AI Engineer roles, interviewers care more about:**
+- Overfitting, regularization, train/val/test split
+- Evaluation metrics (precision, recall, F1, AUC)
+- Embeddings, similarity search
+- Transformer architecture basics
+
+**Don't go deep on classical ML algorithms — 2-3 days max on the high priority ones is enough.**)
+
 - finetuning - https://youtu.be/0MMAEwSmPDg?si=sz95iMjj7ngMtGTS
 
 resource for linear and logistics regression(classification)
