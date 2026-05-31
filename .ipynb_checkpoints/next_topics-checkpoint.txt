@@ -35,7 +35,7 @@ AI
 
 more information
 
-Best medium-level dataset for interview discussion:
+Best medium-level dataset for discussion:
 House Prices - Advanced Regression Techniques (Kaggle)
 Why good:
 * Real-world dataset
@@ -45,5 +45,5 @@ Why good:
 * Correlation analysis
 * Linear Regression + Ridge/Lasso comparison
 * Evaluation using RMSE
-You can say in interview:
+You can say in:
 “I worked on house price prediction using Linear Regression. I handled null values, categorical encoding, feature selection, scaling, and evaluated performance using RMSE.”

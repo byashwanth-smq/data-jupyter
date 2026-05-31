@@ -8,7 +8,7 @@ Classic ML
 - logistics regression
 - neural net
 
-(*For AI/LLM Engineer roles — interviewers rarely go deep on classical ML. But these are must-know:**
+(*For AI/LLM Engineer  —  rarely go deep on classical ML. But these are must-know:**
 
 **High priority (conceptual understanding only):**
 - Linear Regression + Logistic Regression — loss, gradient descent
@@ -27,7 +27,7 @@ Classic ML
 
 ---
 
-**For LLM/RAG/AI Engineer roles, interviewers care more about:**
+**For LLM/RAG/AI Engineer, care more about:**
 - Overfitting, regularization, train/val/test split
 - Evaluation metrics (precision, recall, F1, AUC)
 - Embeddings, similarity search
@@ -44,14 +44,46 @@ fine tuning yt link - https://youtu.be/9yl6-HEY7_s?si=NCl8Mdhp7xvYMrfR
 
 ------
 
+Revise/practice - next week
+
+- L1 & L2 regularization
+- Logistics regression with digits
+- Try desicion trees - Label encoding alternative of hot encoding if data has text categories like decision trees of google, masters degree
+- If dataset has more null values, doing with existing dataset
+    - Filling na/null values with mean values
+    - Find the uniqueness and reduce it
+    - Remove by drop columns which are not much important to predict the price etc
+    - When to delete the column with inplace true
+    - check that titanic fastai - they added few more things to cover these na/null values
+
+------
+
+Revise/practice - next another week 
+
+- **Cross validation** (K-fold) — how you evaluate fairly, must know
+- Learn more about Bias-Variance tradeoff -> less variance, more bias etc (important)
+- Train_test_split to split with random 20 -> existing data splitting into 80% of train data and 20% of test data
+- If dataset has more null values, doing with complex dataset
+    - Filling na/null values with mean values
+    - Find the uniqueness and reduce it
+    - Remove by drop columns which are not much important to predict the price etc
+    - When to delete the column with inplace true
+    - check that titanic fastai - they added few more things to cover these na/null values
+    
+------
+
 AI architecture
 
-PyTorch becomes useful when you want to build/train:
-Neural Networks
-LSTMs, Transformers, Memory
-LLM fine-tuning
-Image models (CNNs)
-Custom deep learning architectures
+- Transformer architecture
+- Training Neural Networks -> basics or forward, backprop, loss, optimizers
+- PyTorch becomes useful when you want to build/train:
+- LLLM fine tuning using pytorch
+- LLM Evaluation metrics & techniques like hallucination, BLEU, RAGAS
+
+Low priority 
+- LSTMs
+- Image models (CNNs, GANs, RNNs)
+- Custom deep learning architectures
 
 ------
 
@@ -75,7 +107,7 @@ AI
 
 more information
 
-Best medium-level dataset for interview discussion:
+Best medium-level dataset for  discussion:
 House Prices - Advanced Regression Techniques (Kaggle)
 Why good:
 * Real-world dataset
@@ -85,5 +117,5 @@ Why good:
 * Correlation analysis
 * Linear Regression + Ridge/Lasso comparison
 * Evaluation using RMSE
-You can say in interview:
+You can say in:
 “I worked on house price prediction using Linear Regression. I handled null values, categorical encoding, feature selection, scaling, and evaluated performance using RMSE.”
