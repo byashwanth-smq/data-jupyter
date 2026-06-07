@@ -1,101 +1,134 @@
-- gradient descent
-- back propagation
-- attention
-- muti layer preception
-- fast forward
-- Inference
+## Amplification Hierarchy (rough order)
 
-------
+```
+Anomalous Adjective > Out-of-place Noun > Unexpected Verb > Normal Adjective > Location Noun
+```
 
-Word embedding means
+So yes, your intuition is right — **word type matters**, but **unexpectedness matters more**.
 
-A "King" we can represent 
-    - mame          - 1
-    - leader        - 1
-    - women         - 0
-    - rich          - 1
-    - tail          - 0
-    - authority     - 1
+---
 
-Embeddings will form, when we train our large amount of text to transformer matrix computation, 
-these embeddings will form between vectors.
+## The Real Rule
 
-two types of embeddings
-- static embeddings
-- contextual embeddings
+```
+Amplification = Semantic Weight × Surprise Factor
+```
 
-transformer has the encoder & decoder
+| Factor | MAT | ANCIENT | DEBRIS |
+|---|---|---|---|
+| Expected in context? | Yes | No | No |
+| Carries meaning? | Low | High | High |
+| **Wins attention?** | ❌ | ✅ | ✅ |
 
-In your model, during training for each token, you will get static emebeded matrix in their internals and they have special metris like Wq, Wk, Wv
+---
 
-each a word will have a token
-for bigger words like called it will split as
-    - call - 1 token
-    - ed - 1 token
-        -------
-            2 tokens
-        --------
+## Your Prompt — "cat watching DEBRIS from mars"
 
+**Yes, DEBRIS will dominate** — because:
+- Cat + watching + mars = somewhat expected sci-fi frame
+- DEBRIS is **concrete + unexpected** in that slot
+- It sits **mid-sentence** (peak attention zone)
 
-each word in sentence will get attention score
+Generation will likely anchor to: *wreckage, destruction, ruins, something fell* — DEBRIS's semantic field.
 
-In attention
-    - query
-    - key
-    - value
+---
 
-word1 -> attention score (dot_product) static emebedding +
-word2 -> attention score (dot_product) static emebedding +
-.
-.
-.
--------
-context aware emebeding will form
--------
+## Quick Construction Rules
 
--------------------------------
+```
+1. Place the target word MID-SENTENCE (not start/end)
+2. Make it ANOMALOUS for that context
+3. Prefer ATTRIBUTE words (adjectives/concrete nouns) over action/location words
+4. CAPITALIZE it (surface-level signal to the model)
+5. Surround it with LOW-information words (so it wins by default)
+```
 
-what is transformer
-    1           2           3       4     5     6   7   8       9       10          11          12
-    I           am         the     boss   ,     I  am  owner    company     simon   innovations   .
-    |            |          |        |          
-    \/           \/         \/     
-    token1
-    token id1
-    static 
-    embeddings                  
-    +                       +          +
-    postion             postion     position
-    vector              vector       vector
-    
-    
+Test it — the output will reveal which word the softmax "chose".
 
-each word convert into token 
+## Anomalous Adjective
 
-so 12 words can quivalent to 12-14 tokens. Depends on word size, if word size is more, then token size of word can increase
+An adjective that **doesn't belong** in that context — it surprises the model.
 
-here position vector will be the representing position of each word into position form of vector
+```
+Normal:    "The cat sat on the soft mat"     → soft = expected, ignored
+Anomalous: "The cat sat on the ANCIENT mat"  → ancient = unexpected, amplified
+```
 
-These final vectors will pass into attention and these will pass into feed forward network, and after repeatating attention + feed forward network for 100 times, then you will get final matrix, take last column then add with existing all word directory will get output then 
-pass into soft max it will give probility of each word its also known as temperature, if temperature is low, then it will take the only high probaility output and return to the user with adding one word in response, same like that now existing words will pass into transformer and get other auto completition words...
+---
 
-during training the static embedding will generate
--------
+## Simple Rule
 
-What is attention
+> **Anomalous = the adjective makes you pause and ask "why is that word there?"**
 
-- Now, each word has the vector which combines the static embedding + position vector = e1
-- we will get attention score of each word depend on "owner" # neeed to know how to calculate attention score
-- we will dot product of (attention_score_for_word1 * e1) + (attention_score_for_word2 * e2) = context word embedding (owner)
-- Wk * e1 = k1
--  context word embedding (owner) i.e e7 * Wq = Qq
-- k1 * Qq -> softmax - probabiity
--   (attention_score_for_word1 * word vector1) * Qq = soft max = probality
+| Adjective | Context fit | Anomalous? |
+|---|---|---|
+| soft mat | ✅ makes sense | ❌ no amplification |
+| dirty mat | ✅ makes sense | ❌ no amplification |
+| ANCIENT mat | ❓ odd | ✅ amplified |
+| RADIOACTIVE mat | ❌ wrong | ✅ strongly amplified |
+
+The more **semantically mismatched** the adjective is to its noun — the higher it scores in attention.
 
 
-------------------------------------
-The next step is to create an embedding vector for each of your token IDs—THIS is the step where you create a vector of numbers that is used to represent each token. You learn an embedding matrix, which is basically a massive lookup table that maps each token ID to its corresponding embedding vector.
+----
 
-The important things to understand are: (1) tokenization and creating embedding vectors are two separate steps, and (2) the important difference is that token IDs are discrete integers that contain NO semantic meaning—they are literally just indices—while embedding vectors are continuous vectors that contain rich semantic meaning for each word/subword in your text.
+cat watching debris from mars
 
-------------------------------------
+The cat sat on the rust-red soil of Mars, tail curled neatly around its paws, watching the debris field drift silently overhead. Chunks of metal and rock tumbled in slow, graceful arcs against the pale pink sky — the remains of something that had once been very important to someone. The cat blinked once, thoroughly unimpressed, and turned its gaze back to the horizon.
+----
+
+## Good observation — but attention works differently per task
+
+---
+
+
+if i ask translate from one word to another word, then if this attention mechanism applies then it might change response of the output which is translated right ? in these cases, attention won't do much work on these tasks ?
+what do you think ?
+
+in short response
+
+
+## Translation Task
+
+```
+Input:  "The cat sat on the ANCIENT mat"
+Task:   Translate to French
+Output: "Le chat était assis sur l'ANCIEN tapis"
+```
+
+Attention here is doing **word alignment work**, not semantic amplification:
+
+```
+Amplification task  → attention picks a winner word, expands its meaning
+Translation task    → attention maps EVERY word to target language equally
+```
+
+---
+
+## Why ANCIENT won't "hijack" translation
+
+In translation, the model is **constrained by a strict objective** — preserve all meaning, change language. So:
+
+```
+Amplification mode:  1 word wins → generation expands from it
+Translation mode:    all words must survive → no word can dominate unfairly
+```
+
+---
+
+## But — subtle effect still exists
+
+If the sentence is **ambiguous**, attention bias CAN affect translation:
+
+```
+"He saw the ANCIENT bank"
+→ bank = river bank or financial bank?
+→ ANCIENT pushes attention toward "river bank" (more historically fitting)
+→ Translation picks that interpretation
+```
+
+---
+
+## Short Answer
+
+> Translation suppresses amplification **unless there's ambiguity** — then the anomalous word breaks the tie.
