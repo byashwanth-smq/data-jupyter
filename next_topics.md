@@ -47,8 +47,6 @@ fine tuning yt link - https://youtu.be/9yl6-HEY7_s?si=NCl8Mdhp7xvYMrfR
 Revise/practice - next week
 
 - L1 & L2 regularization
-- Logistics regression with digits
-- Try desicion trees - Label encoding alternative of hot encoding if data has text categories like decision trees of google, masters degree
 - If dataset has more null values, doing with existing dataset
     - Filling na/null values with mean values
     - Find the uniqueness and reduce it
@@ -58,8 +56,10 @@ Revise/practice - next week
 
 ------
 
-Revise/practice - next another week 
+Revise/practice - next another week
 
+- Logistics regression with digits
+- Try desicion trees - Label encoding alternative of hot encoding if data has text categories like decision trees of google, masters degree
 - **Cross validation** (K-fold) — how you evaluate fairly, must know
 - Learn more about Bias-Variance tradeoff -> less variance, more bias etc (important)
 - Train_test_split to split with random 20 -> existing data splitting into 80% of train data and 20% of test data
