@@ -57,13 +57,16 @@ context aware emebeding will form
 
 what is transformer
     1           2           3       4     5     6   7   8       9       10          11          12
-    I           am         the     boss   ,     I  am  your    company     simon   innovations   .
+    I           am         the     boss   ,     I  am  owner    company     simon   innovations   .
     |            |          |        |          
     \/           \/         \/     
-    token1      token2      token3    .....
-    +             +          +
-    postion      postion     position
-    vector       vector       vector
+    token1
+    token id1
+    static 
+    embeddings                  
+    +                       +          +
+    postion             postion     position
+    vector              vector       vector
     
     
 
@@ -75,3 +78,24 @@ here position vector will be the representing position of each word into positio
 
 These final vectors will pass into attention and these will pass into feed forward network, and after repeatating attention + feed forward network for 100 times, then you will get final matrix, take last column then add with existing all word directory will get output then 
 pass into soft max it will give probility of each word its also known as temperature, if temperature is low, then it will take the only high probaility output and return to the user with adding one word in response, same like that now existing words will pass into transformer and get other auto completition words...
+
+during training the static embedding will generate
+-------
+
+What is attention
+
+- Now, each word has the vector which combines the static embedding + position vector = e1
+- we will get attention score of each word depend on "owner" # neeed to know how to calculate attention score
+- we will dot product of (attention_score_for_word1 * e1) + (attention_score_for_word2 * e2) = context word embedding (owner)
+- Wk * e1 = k1
+-  context word embedding (owner) i.e e7 * Wq = Qq
+- k1 * Qq -> softmax - probabiity
+-   (attention_score_for_word1 * word vector1) * Qq = soft max = probality
+
+
+------------------------------------
+The next step is to create an embedding vector for each of your token IDs—THIS is the step where you create a vector of numbers that is used to represent each token. You learn an embedding matrix, which is basically a massive lookup table that maps each token ID to its corresponding embedding vector.
+
+The important things to understand are: (1) tokenization and creating embedding vectors are two separate steps, and (2) the important difference is that token IDs are discrete integers that contain NO semantic meaning—they are literally just indices—while embedding vectors are continuous vectors that contain rich semantic meaning for each word/subword in your text.
+
+------------------------------------
