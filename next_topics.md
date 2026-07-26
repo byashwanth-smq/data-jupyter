@@ -10,30 +10,30 @@ Classic ML
 
 (*For AI/LLM Engineer  —  rarely go deep on classical ML. But these are must-know:**
 
-**High priority (conceptual understanding only):**
+High priority (conceptual understanding only):
 - Linear Regression + Logistic Regression — loss, gradient descent
 - Bias-Variance tradeoff — very frequently asked conceptually
 - Decision Trees + Random Forest — intuition, overfitting, feature importance
 - Gradient Boosting (XGBoost) — know when to use it
 
-**Medium priority (just know what/when to use):**
+Medium priority (just know what/when to use):
 - KNN — simple intuition
 - Naive Bayes — good for NLP context
 - SVM — just high level, rarely asked deep
 
-**Skip or very low priority for your target roles:**
+Skip or very low priority for your target roles:
 - AdaBoost — rarely asked
 - Deep classical stuff — not relevant
 
 ---
 
-**For LLM/RAG/AI Engineer, care more about:**
+For LLM/RAG/AI Engineer, care more about:
 - Overfitting, regularization, train/val/test split
 - Evaluation metrics (precision, recall, F1, AUC)
 - Embeddings, similarity search
 - Transformer architecture basics
 
-**Don't go deep on classical ML algorithms — 2-3 days max on the high priority ones is enough.**)
+Don't go deep on classical ML algorithms — 2-3 days max on the high priority ones is enough.)
 
 - finetuning - https://youtu.be/0MMAEwSmPDg?si=sz95iMjj7ngMtGTS
 
@@ -44,7 +44,7 @@ fine tuning yt link - https://youtu.be/9yl6-HEY7_s?si=NCl8Mdhp7xvYMrfR
 
 ------
 
-Revise/practice - next week
+**Revise/practice - next week**
 
 - L1 & L2 regularization (done)
 - If dataset has more null values, doing with existing dataset (done)
@@ -56,24 +56,58 @@ Revise/practice - next week
 
 ------
 
-Revise/practice - next another week
+**Revise/practice - next another week**
 
 - Complete the left over regression house pricing 
 - Write down complete flow of transformer, self-attention, encoder-decoder-attention
 - Try desicion trees - Label encoding alternative of hot encoding if data has text categories like decision trees of google, masters degree
 ------
 
-Revise/practice - next another another week
+**Revise/practice - next another another week**
 
-- **Cross validation** (K-fold) — how you evaluate fairly, must know
+- Cross validation (K-fold) — how you evaluate fairly, must know
 - Learn more about Bias-Variance tradeoff -> less variance, more bias etc (important)
 - Train_test_split to split with random 20 -> existing data splitting into 80% of train data and 20% of test data
-- If dataset has more null values, doing with **complex** dataset
+- If dataset has more null values, doing with complex dataset
     - Filling na/null values with mean values
     - Find the uniqueness and reduce it
     - Remove by drop columns which are not much important to predict the price etc
     - When to delete the column with inplace true
     - check that titanic fastai - they added few more things to cover these na/null values
+
+
+
+------
+
+AI tasks - next week
+
+RAG + Vector DBs — build from scratch first ✓ (your plan is correct)
+LangChain + LangGraph — non-negotiable, every above lists it as mandatory
+Multi-agent orchestration — LangGraph agents, planner-router patterns 
+Fine-tuning, LoRA, QLoRA — strong for product companies specifically
+LLM Evaluation + RAGAS — directly called out in multiple JDs
+LangSmith / observability basics 
+Your project plan — revised:
+Project 1: RAG from scratch + ChromaDB (understand internals) ✓
+Project 2: Same RAG rebuilt with LangChain + LangGraph multi-agent — this is your centrepiece
+
+———
+
+Fine tuning
+
+What you actually need to know for:
+PyTorch basics — tensors, training loop, optimizer step
+HuggingFace — from_pretrained, Trainer, AutoTokenizer
+PEFT — how LoRA reduces trainable parameters, why QLoRA saves memory
+SFT (Supervised Fine-Tuning) vs instruction tuning — conceptual difference
+You don't need to build training pipelines from scratch — just understand the flow and have done it once with HuggingFace Trainer or trl library's SFTTrainer.
+———
+
+Continue with fastai NLP & training neural networks and explore neural net
+
+———
+
+Contribute to open-source projects on HuggingFace or LangChain
 
 ------
 AI architecture
